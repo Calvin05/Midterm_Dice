@@ -84,6 +84,9 @@ var scenes;
                 _this._secondLabel.text = String(secondValue);
                 _this._total.textAlign = "center";
                 _this._total.text = "Total: " + String(firstValue + secondValue);
+                var sound = document.createElement("audio");
+                sound.src = "./Assets/audio/sound.mp3";
+                sound.play();
                 console.log(firstValue, secondValue);
             });
             // get an image path based on the number on the dice

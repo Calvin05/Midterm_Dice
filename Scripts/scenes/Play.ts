@@ -90,6 +90,10 @@ module scenes
                 this._secondLabel.text = String(secondValue);
                 this._total.textAlign = "center";
                 this._total.text = "Total: " + String(firstValue+secondValue);
+
+                var sound = document.createElement("audio");
+                sound.src = "./Assets/audio/sound.mp3";
+                sound.play();
                 console.log(firstValue, secondValue);
                 
                 

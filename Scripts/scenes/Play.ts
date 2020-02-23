@@ -15,6 +15,7 @@ module scenes
         private _firstLabel:objects.Label;
         private _secondLabel:objects.Label;
         private _total:objects.Label;
+        private _endButton:objects.Button;
         // PUBLIC PROPERTIES
 
         get firstDice():objects.Image
@@ -50,6 +51,9 @@ module scenes
             this._firstLabel = new objects.Label(" ", "18px", "Arial", "black",190, 320, true); 
             this._secondLabel = new objects.Label(" ", "18px", "Arial", "black",460, 320, true); 
             this._total = new objects.Label(" ", "18px", "Arial", "black",320, 370, true); 
+            this._endButton = new objects.Button(config.Game.ASSETS.getResult("nextButton"), 520, 430, true);
+            // this._firstDice.scaleX = 0.5;
+            // this._firstDice.scaleY = 0.5;
             this.Main();
         }        
         
@@ -66,6 +70,11 @@ module scenes
             this.addChild(this._firstLabel);
             this.addChild(this._secondLabel);
             this.addChild(this._total);
+            this.addChild(this._endButton);
+
+            this._endButton.on("click", ()=>{
+                config.Game.SCENE = scenes.State.END;
+            });
             
             this._rollButton.addEventListener("click", ()=> {
 
@@ -95,8 +104,6 @@ module scenes
                 sound.src = "./Assets/audio/sound.mp3";
                 sound.play();
                 console.log(firstValue, secondValue);
-                
-                
 
             });
 

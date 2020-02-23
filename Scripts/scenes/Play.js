@@ -55,6 +55,9 @@ var scenes;
             this._firstLabel = new objects.Label(" ", "18px", "Arial", "black", 190, 320, true);
             this._secondLabel = new objects.Label(" ", "18px", "Arial", "black", 460, 320, true);
             this._total = new objects.Label(" ", "18px", "Arial", "black", 320, 370, true);
+            this._endButton = new objects.Button(config.Game.ASSETS.getResult("nextButton"), 520, 430, true);
+            // this._firstDice.scaleX = 0.5;
+            // this._firstDice.scaleY = 0.5;
             this.Main();
         };
         Play.prototype.Update = function () {
@@ -67,6 +70,10 @@ var scenes;
             this.addChild(this._firstLabel);
             this.addChild(this._secondLabel);
             this.addChild(this._total);
+            this.addChild(this._endButton);
+            this._endButton.on("click", function () {
+                config.Game.SCENE = scenes.State.END;
+            });
             this._rollButton.addEventListener("click", function () {
                 var i1 = new Image();
                 var i2 = new Image();
